@@ -3,8 +3,21 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private void Start()
+    public static GameManager Instance;
+    [SerializeField]
+    private GameObject player;
+    
+    public UIManager uiManager;
+    void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         SetFps();
     }
 

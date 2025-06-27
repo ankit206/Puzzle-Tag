@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//  class for collectables item 
 public class CollectableItem : MonoBehaviour
 {
     private string itemName = "Coin"; 
@@ -15,7 +15,7 @@ public class CollectableItem : MonoBehaviour
             {
                 playerInventory.CollectItem(this);
             }
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 
