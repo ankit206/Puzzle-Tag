@@ -368,7 +368,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd478b49f5bfbe24eb4eb63e4c016622, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  walkSpeed: 5
+  runSpeed: 7
+  rotationSpeed: 10
 --- !u!136 &126701985
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2313,7 +2315,7 @@ GameObject:
   - component: {fileID: 1735617094}
   - component: {fileID: 1735617093}
   - component: {fileID: 1735617092}
-  - component: {fileID: 1735617091}
+  - component: {fileID: 1735617097}
   m_Layer: 0
   m_Name: Enamy
   m_TagString: Untagged
@@ -2321,24 +2323,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1735617091
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1735617090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdbac53f2da2c124dab9c5635d04e7e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
-  waypoints:
-  - {fileID: 1468550161}
-  - {fileID: 12462919}
-  currentDistance: 0
-  currentWaypoint: 0
 --- !u!54 &1735617092
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2457,6 +2441,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1735617097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735617090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16384e7ace3fcc542be69957756886cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3
+  waypoints:
+  - {fileID: 1468550161}
+  - {fileID: 12462919}
+  health: 100
+  attackRange: 2
+  AttackPower: 0
+  Health: 0
 --- !u!1 &1908498973
 GameObject:
   m_ObjectHideFlags: 0

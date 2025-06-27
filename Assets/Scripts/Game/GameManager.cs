@@ -26,5 +26,10 @@ public class GameManager : MonoBehaviour
     {
         Application.targetFrameRate = 60;
     }
+
+    public GameObject GetPlayer()
+    {
+        return player;
+    }
    
 }
