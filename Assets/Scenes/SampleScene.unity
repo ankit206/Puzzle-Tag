@@ -169,7 +169,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3fe55f0e65445e0439d1f1e0e6b2e8fb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3fe55f0e65445e0439d1f1e0e6b2e8fb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -211,7 +211,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Aj@Breathing Idle
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5866666021909216657, guid: 3fe55f0e65445e0439d1f1e0e6b2e8fb, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: e4d7bd21c3d70294099a4e031145248d, type: 2}
+    m_RemovedComponents:
+    - {fileID: 5866666021909216657, guid: 3fe55f0e65445e0439d1f1e0e6b2e8fb, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -349,6 +354,8 @@ GameObject:
   - component: {fileID: 126701984}
   - component: {fileID: 126701989}
   - component: {fileID: 126701990}
+  - component: {fileID: 126701992}
+  - component: {fileID: 126701991}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -504,6 +511,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collectedItems: []
   totalScore: 0
+--- !u!95 &126701991
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126701983}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 3fe55f0e65445e0439d1f1e0e6b2e8fb, type: 3}
+  m_Controller: {fileID: 9100000, guid: e4d7bd21c3d70294099a4e031145248d, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &126701992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126701983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea3ac5574a376524793af3abc93b4e9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &143179288
 GameObject:
   m_ObjectHideFlags: 0
@@ -2316,6 +2357,7 @@ GameObject:
   - component: {fileID: 1735617093}
   - component: {fileID: 1735617092}
   - component: {fileID: 1735617097}
+  - component: {fileID: 1735617098}
   m_Layer: 0
   m_Name: Enamy
   m_TagString: Untagged
@@ -2460,7 +2502,32 @@ MonoBehaviour:
   health: 100
   attackRange: 2
   AttackPower: 0
-  Health: 0
+  animator: {fileID: 0}
+  player: {fileID: 0}
+  detectionRange: 10
+  attackCooldown: 2
+--- !u!95 &1735617098
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735617090}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1908498973
 GameObject:
   m_ObjectHideFlags: 0
