@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public abstract class EnemyBase : MonoBehaviour
 {
@@ -8,7 +10,7 @@ public abstract class EnemyBase : MonoBehaviour
     protected int currentWaypoint = 0;
 
     [Header("Stats")]
-    public float health = 100f;
+    public int  health = 100;
 
     [Header("Health and power")]
     public float attackRange = 2f;
@@ -19,6 +21,7 @@ public abstract class EnemyBase : MonoBehaviour
     public float detectionRange = 10f;
     public float attackCooldown = 2f;
     private float lastAttackTime;
+    
     protected virtual void Start()
     {
         animator = GetComponent<Animator>();
@@ -61,7 +64,7 @@ public abstract class EnemyBase : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float amount)
+    public void TakeDamage(int amount)
     {
         health -= amount;
         if (health <= 0) Die();
@@ -72,6 +75,16 @@ public abstract class EnemyBase : MonoBehaviour
         Debug.Log($"{gameObject.name} died.");
         Destroy(gameObject);
     }
-   
-    public abstract void Attack(); // must be overridden in child classes
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            Heathdegrade();
+        }
+    }
+    
+
+    public abstract void Attack();  
+    public abstract void Heathdegrade(); // must be overridden in child classes
 }

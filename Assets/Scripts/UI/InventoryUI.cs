@@ -23,6 +23,7 @@ public class InventoryUI : MonoBehaviour
             slot.GetComponentInChildren<Image>().sprite = item.icon;
             slot.GetComponentInChildren<ToolTip>().SetText(item.itemName, "Qty: " + item.quantity);
             slot.GetComponentInChildren<TextMeshProUGUI>().text = item.quantity.ToString();
+            slot.GetComponent<Button>().onClick.AddListener(EventSystem.HealthPostionused);
         }
     }
 }

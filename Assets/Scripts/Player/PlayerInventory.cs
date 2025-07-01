@@ -12,16 +12,15 @@ public class PlayerInventory : MonoBehaviour
     // updates the inventory.
     public void CollectItem(CollectableItem item)
     {
-        if (item.gameObject.GetComponent<InventoryItem>())
+        if (item.item)
         {
-            collectedItems.Add(item.gameObject.GetComponent<InventoryItem>());
+            collectedItems.Add(item.item);
             
         }
         else
         {
-            totalScore += item.getItemValue();
+            totalScore += item.item.quantity;
         }
-        Debug.Log($"Collected: {item.getItemValue()} | Total Score: {totalScore}");
         GameManager.Instance.uiManager.inventoryUI.UpdateInventory(collectedItems);
     }
 }

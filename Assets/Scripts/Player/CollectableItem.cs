@@ -2,9 +2,7 @@ using UnityEngine;
 //  class for collectables item 
 public class CollectableItem : MonoBehaviour
 {
-    private string itemName = "Coin"; 
-    private int itemValue = 1; 
-
+    public InventoryItem item;
     //item collected by trigger.
     private void OnTriggerEnter(Collider other)
     {
@@ -17,19 +15,5 @@ public class CollectableItem : MonoBehaviour
             }
             gameObject.SetActive(false);
         }
-    }
-
-    public int getItemValue()
-    {
-        return itemValue;
-    }
-    public string getitemName()
-    {
-        return itemName;
-    }
-
-    public void setItemValue(int value)
-    {
-        itemValue = value;
     }
 }

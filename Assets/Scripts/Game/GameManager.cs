@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-
+// manage Game States
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     private GameObject player;
     
     public UIManager uiManager;
+    
+    public LevelManager LevelManager { get; private set; }
     void Awake()
     {
         if (Instance == null)
@@ -19,8 +21,13 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         SetFps();
+        EventSystem.ONStartGame += StartGame;
     }
-
+    // start game Hide Start screen
+    public void StartGame()
+    {
+        player.GetComponent<PlayerController>().GamePaused  = false;
+    }
     // set appllication Framerate to 60
     void SetFps()
     {
@@ -31,5 +38,7 @@ public class GameManager : MonoBehaviour
     {
         return player;
     }
+
+    
    
 }
