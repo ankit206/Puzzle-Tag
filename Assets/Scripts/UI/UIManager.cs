@@ -16,6 +16,11 @@ public class UIManager : MonoBehaviour
     public Button StartGameButton;
     [Header("start Game panel")]
     public GameObject startGamepanel;
+
+    [Header("lEVEL COMPLETE Panel")] 
+    public GameObject completeLevel;
+    public Button NextLevelButton;
+    
     // Createing Singelton UIManager
     void Awake()
     {
@@ -28,7 +33,20 @@ public class UIManager : MonoBehaviour
             Destroy(gameObject);
         }
         StartGameButton.onClick.AddListener(EventSystem.StartGame);
+        NextLevelButton.onClick.AddListener(loadNextLevel);
         EventSystem.disableStartGameUiPanel += DisablStartGameUIPanle;
+        EventSystem.OnLeveLComplete += OnLeveLComplete;
+        EventSystem.LoadNextLevel += loadNextLevel;
+    }
+
+    private void OnLeveLComplete()
+    {
+        completeLevel.SetActive(false);
+    }
+
+    private void loadNextLevel()
+    {
+        completeLevel.SetActive(false);
     }
 
     private void Update()

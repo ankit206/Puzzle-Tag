@@ -22,4 +22,10 @@ public static  class EventSystem
     {
         OnHealthPostionused?.Invoke();
     }
+    // Trigger when level Complete
+    public static Action OnLeveLComplete;
+
+    public static Action LoadNextLevel;
+    
+
 }

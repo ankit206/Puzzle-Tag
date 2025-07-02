@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public UIManager uiManager;
     
     public LevelManager LevelManager { get; private set; }
+    public bool Gamestarted;
+    public TopDownCamera Camera;
     void Awake()
     {
         if (Instance == null)
@@ -26,6 +28,7 @@ public class GameManager : MonoBehaviour
     // start game Hide Start screen
     public void StartGame()
     {
+        Gamestarted = true;
         player.GetComponent<PlayerController>().GamePaused  = false;
     }
     // set appllication Framerate to 60
@@ -38,7 +41,16 @@ public class GameManager : MonoBehaviour
     {
         return player;
     }
+    public void setPlayer(GameObject playerobject)
+    {
+         player= playerobject;
+         SetPlyerTocamera();
+    }
 
+    public void SetPlyerTocamera()
+    {
+        Camera.player = player.transform;
+    }
     
    
 }

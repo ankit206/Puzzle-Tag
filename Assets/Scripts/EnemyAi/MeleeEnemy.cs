@@ -9,6 +9,10 @@ public class MeleeEnemy : EnemyBase
     public int takeDameage = 10;
     public override void Attack()
     {
+        animator?.SetBool("running", false);
+        animator?.SetBool("walking", false);
+        animator?.SetBool("Attack", true);
+
         Debug.Log("MeleeEnemy swings sword!");
     }
 

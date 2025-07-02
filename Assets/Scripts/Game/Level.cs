@@ -6,7 +6,7 @@ public class Level : MonoBehaviour
     [Header("Spawn Points")]
     public Transform playerSpawnPoint;
     public List<Transform> enemySpawnPoints;
-
+    public Transform[] enemywayPoints;
     public Transform GetPlayerSpawnPoint()
     {
         return playerSpawnPoint;

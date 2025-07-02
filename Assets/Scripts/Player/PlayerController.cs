@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public PlayerAnimationController animationController;
 
     public bool GamePaused=true;
+    public Tags tag;
     private void Start()
     {
         animationController = GetComponent<PlayerAnimationController>();
@@ -75,11 +76,25 @@ public class PlayerController : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
+        switch (other.tag)
+        {
+            case "damage":
+                Debug.Log("Took damage");
+                TakeDamage(10);
+                other.gameObject.SetActive(false);
+                break;
+
+            case "Finish":
+                EventSystem.OnLeveLComplete?.Invoke();
+                break;
+
+            case "Environment":
+                // Ignore or bounce off
+                break;
+        }
         if (other.tag == "damage")
         {
-            Debug.Log("Took damage");
-            TakeDamage(10);
-            other.gameObject.SetActive(false);
+            
         }
     }
     
@@ -98,4 +113,11 @@ public class PlayerController : MonoBehaviour
             // Add death logic
         }
     }
+}
+
+public enum Tags
+{
+damage,
+health, 
+Finish
 }

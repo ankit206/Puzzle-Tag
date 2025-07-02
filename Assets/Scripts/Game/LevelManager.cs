@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections.Generic;
 // manage Level Prefab Based on Game state
@@ -12,12 +13,21 @@ public class LevelManager : MonoBehaviour
     
     private GameObject currentLevelInstance;
     [Header("Current playert")]
-    private GameObject playerInstance;
+    public GameObject playerInstance;
     private List<GameObject> spawnedEnemies = new List<GameObject>();
     private Level currentLevelScript;
+    public List<Transform> enemywayPoints;
 
     public int currentLevelIndex { get; private set; } = 0;
-     // Load Levels
+
+    private void Start()
+    {
+        LoadLevel(0);
+        EventSystem.LoadNextLevel += LoadNextLevel;
+        
+    }
+
+    // Load Levels
     public void LoadLevel(int index)
     {
         if (index < 0 || index >= levelPrefabs.Length)
@@ -33,7 +43,7 @@ public class LevelManager : MonoBehaviour
         currentLevelIndex = index;
 
         SpawnPlayer();
-        SpawnEnemies();
+        
 
         Debug.Log($"Level {index} loaded.");
     }
@@ -44,6 +54,8 @@ public class LevelManager : MonoBehaviour
         {
             playerInstance = Instantiate(playerPrefab, currentLevelScript.GetPlayerSpawnPoint().position, Quaternion.identity);
         }
+GameManager.Instance.setPlayer(playerInstance);
+        SpawnEnemies();
     }
     // Spawn Enamy
     private void SpawnEnemies()
@@ -54,6 +66,8 @@ public class LevelManager : MonoBehaviour
             {
                 var enemy = Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
                 spawnedEnemies.Add(enemy);
+                enemy.GetComponent<MeleeEnemy>().player = playerInstance;
+                enemy.GetComponent<MeleeEnemy>().waypoints = currentLevelScript.enemywayPoints;
             }
         }
     }
