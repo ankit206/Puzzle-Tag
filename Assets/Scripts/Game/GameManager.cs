@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 // manage Game States
 public class GameManager : MonoBehaviour
@@ -12,6 +13,8 @@ public class GameManager : MonoBehaviour
     public LevelManager LevelManager { get; private set; }
     public bool Gamestarted;
     public TopDownCamera Camera;
+    
+    public List<GameObject> chareaters = new List<GameObject>();
     void Awake()
     {
         if (Instance == null)
@@ -29,7 +32,10 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         Gamestarted = true;
-        player.GetComponent<PlayerController>().isGamePaused  = false;
+        if (player!=null&& player.GetComponent<PlayerController>())
+        {
+            player.GetComponent<PlayerController>().isGamePaused  = false;
+        }
     }
     // set appllication Framerate to 60
     void SetFps()

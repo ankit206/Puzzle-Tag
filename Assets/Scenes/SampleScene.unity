@@ -2234,6 +2234,7 @@ MonoBehaviour:
   uiManager: {fileID: 96821227}
   Gamestarted: 0
   Camera: {fileID: 330585548}
+  chareaters: []
 --- !u!4 &1471128706
 Transform:
   m_ObjectHideFlags: 0
@@ -2263,10 +2264,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelPrefabs:
   - {fileID: 3672523783848016075, guid: 5b82d29e9e087f84aae40acff421c5a7, type: 3}
-  playerPrefab: {fileID: 983759981652076864, guid: 57bea9cb4e94ace46bde3b6ce8d28e78, type: 3}
-  enemyPrefab: {fileID: 3235146421533747379, guid: 768689c0e8747e1429ce5ccbbf474bc5, type: 3}
+  playerPrefab: {fileID: 3235146421533747379, guid: 768689c0e8747e1429ce5ccbbf474bc5, type: 3}
+  enemyPrefab:
+  - {fileID: 6169336772548988142, guid: 3b5b937ccb8a63a4b9d3d9a0d12a3e2b, type: 3}
+  - {fileID: 3235146421533747379, guid: 768689c0e8747e1429ce5ccbbf474bc5, type: 3}
   playerInstance: {fileID: 0}
   enemywayPoints: []
+  THirdPersonGame: 0
 --- !u!1 &1474549520
 GameObject:
   m_ObjectHideFlags: 0

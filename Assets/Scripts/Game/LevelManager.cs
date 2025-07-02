@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+
 // manage Level Prefab Based on Game state
 public class LevelManager : MonoBehaviour
 {
@@ -8,16 +10,16 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameObject[] levelPrefabs;
     [Header("Chracters")]
     [SerializeField] private GameObject playerPrefab;
-    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private  List<GameObject> enemyPrefab = new List<GameObject>();
     
     
     private GameObject currentLevelInstance;
     [Header("Current playert")]
     public GameObject playerInstance;
-    private List<GameObject> spawnedEnemies = new List<GameObject>();
+    public List<GameObject> spawnedEnemies = new List<GameObject>();
     private Level currentLevelScript;
     public List<Transform> enemywayPoints;
-
+    public bool THirdPersonGame;
     public int currentLevelIndex { get; private set; } = 0;
 
     private void Start()
@@ -53,24 +55,25 @@ public class LevelManager : MonoBehaviour
     // spawn players
     private void SpawnPlayer()
     {
-        if (currentLevelScript && playerPrefab)
+        if (THirdPersonGame)
         {
-            playerInstance = Instantiate(playerPrefab, currentLevelScript.GetPlayerSpawnPoint().position, Quaternion.identity);
+            if (currentLevelScript && playerPrefab)
+            {
+                playerInstance = Instantiate(playerPrefab, currentLevelScript.GetPlayerSpawnPoint().position, Quaternion.identity);
+            }
+            GameManager.Instance.setPlayer(playerInstance);
         }
-        GameManager.Instance.setPlayer(playerInstance);
         SpawnEnemies();
     }
     // Spawn Enamy
     private void SpawnEnemies()
     {
-        if (currentLevelScript && enemyPrefab)
+        if (currentLevelScript)
         {
-            foreach (var spawnPoint in currentLevelScript.GetEnemySpawnPoints())
+            for (int i = 0; i < enemyPrefab.Count; i++) 
             {
-                var enemy = Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
+                var enemy = Instantiate(enemyPrefab[i], currentLevelScript.enemySpawnPoints[i].position, Quaternion.identity);
                 spawnedEnemies.Add(enemy);
-                enemy.GetComponent<MeleeEnemy>().player = playerInstance;
-                enemy.GetComponent<MeleeEnemy>().waypoints = currentLevelScript.enemywayPoints;
             }
         }
     }

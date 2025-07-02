@@ -30,8 +30,11 @@ public abstract class EnemyBase : MonoBehaviour
     
     protected virtual void Start()
     {
-       
-        player= GameManager.Instance.GetPlayer();
+
+        if (GameManager.Instance)
+        {
+            player= GameManager.Instance.GetPlayer();
+        }
     }
     protected virtual void Update()
     {
@@ -61,12 +64,16 @@ public abstract class EnemyBase : MonoBehaviour
 
     public void CheckPlayerDistance()
     {
-        if (!player)
+        var CurrentDistance=0f;
+        if (player)
         {
-            return;
+            CurrentDistance = Vector3.Distance(transform.position, player.transform.position);
         }
-        var CurrentDistance = Vector3.Distance(transform.position, player.transform.position);
-        if ( CurrentDistance< detectionRange)
+        else
+        {
+            CurrentDistance = detectionRange + 1;
+        }
+        if (CurrentDistance< detectionRange)
         {
             Playerisinrange = true;
             if (CurrentDistance > attackRange)
@@ -130,7 +137,15 @@ public abstract class EnemyBase : MonoBehaviour
             Heathdegrade();
         }
     }
-    
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            Heathdegrade();
+        }
+    }
+
 
     public abstract void Attack();  
     public abstract void Heathdegrade(); // must be overridden in child classes
