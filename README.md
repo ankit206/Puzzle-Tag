@@ -14,7 +14,7 @@ Unity Top-Down Strategy Game (URP Desktop)
 
 ✅ Modular, event-driven architecture
 
-Built for Unity 2022.3 LTS using the Universal Render Pipeline (URP) targeting desktop platforms.
+Built for Unity 6000.0.51f1 LTS using the Universal Render Pipeline (URP) targeting desktop platforms.
 
 🚀 Features
 
@@ -66,26 +66,12 @@ GameManager and LevelManager manage states and references
 
 Separation of UI, gameplay logic, and input
 
-🗂 Project Structure
-
-Assets/
-├── Scripts/
-│   ├── Managers/          # GameManager, LevelManager
-│   ├── Player/            # PlayerController, Inventory, Animations
-│   ├── Enemy/             # MeleeEnemy, RangedEnemy, BossEnemy
-│   ├── UI/                # InventoryUI, ToolTips, UIManager
-│   └── Systems/           # EventSystem, utilities
-│
-├── Prefabs/               # Level prefabs, item prefabs
-├── ScriptableObjects/     # InventoryItem.asset files
-├── Scenes/                # Main.unity and others
-└── Art/                   # Icons, Sprites
 
 🛠 How to Use
 
 🔧 Setup
 
-Open in Unity 2022.3 LTS
+Open in Unity 6000.0.51f1 LTS 
 
 Import URP and configure project for URP
 
