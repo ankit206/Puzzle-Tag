@@ -38,7 +38,7 @@ public class UIManager : MonoBehaviour
         EventSystem.OnLeveLComplete += OnLeveLComplete;
         EventSystem.LoadNextLevel += loadNextLevel;
     }
-
+   
     private void OnLeveLComplete()
     {
         completeLevel.SetActive(false);
@@ -70,11 +70,21 @@ public class UIManager : MonoBehaviour
     private void OnEnable()
     {
         EventSystem.OnHealthChanged += UpdateHealthBar;
+        StartGameButton.onClick.AddListener(EventSystem.StartGame);
+        NextLevelButton.onClick.AddListener(loadNextLevel);
+        EventSystem.disableStartGameUiPanel += DisablStartGameUIPanle;
+        EventSystem.OnLeveLComplete += OnLeveLComplete;
+        EventSystem.LoadNextLevel += loadNextLevel;
     }
 
     private void OnDisable()
     {
         EventSystem.OnHealthChanged -= UpdateHealthBar;
+        StartGameButton.onClick.RemoveAllListeners();
+        NextLevelButton.onClick.RemoveAllListeners();
+        EventSystem.disableStartGameUiPanel -= DisablStartGameUIPanle;
+        EventSystem.OnLeveLComplete -= OnLeveLComplete;
+        EventSystem.LoadNextLevel -= loadNextLevel;
     }
    // update player health bar
     private void UpdateHealthBar(int currentHP)

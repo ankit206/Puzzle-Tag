@@ -15,13 +15,23 @@ public class PlayerController : MonoBehaviour
     public int damage=10;
     public PlayerAnimationController animationController;
 
-    public bool GamePaused=true;
+    public bool isGamePaused=true;
     public Tags tag;
     private void Start()
     {
         animationController = GetComponent<PlayerAnimationController>();
         EventSystem.OnHealthPostionused += OnHealthPostionused;
     }
+    
+    private void OnEnable()
+    {
+        EventSystem.OnHealthPostionused += OnHealthPostionused;
+    }
+
+    private void OnDisable()
+    {
+        EventSystem.OnHealthPostionused -= OnHealthPostionused;
+    }   
     // Use health Potion to fix damage done by enamy
     private void OnHealthPostionused()
     {
@@ -32,12 +42,12 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (!GamePaused)
-        {
+         if (isGamePaused) return;
+         
             keyboardInput();
             Move();
             Rotate();
-        }
+            
     }
 
     // handel keyboard input

@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         Gamestarted = true;
-        player.GetComponent<PlayerController>().GamePaused  = false;
+        player.GetComponent<PlayerController>().isGamePaused  = false;
     }
     // set appllication Framerate to 60
     void SetFps()

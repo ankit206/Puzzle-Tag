@@ -5,10 +5,10 @@ using System.Collections.Generic;
 public class LevelManager : MonoBehaviour
 {
     [Header("Level prefab List")]
-    public GameObject[] levelPrefabs;
+    [SerializeField] private GameObject[] levelPrefabs;
     [Header("Chracters")]
-    public GameObject playerPrefab;
-    public GameObject enemyPrefab;
+    [SerializeField] private GameObject playerPrefab;
+    [SerializeField] private GameObject enemyPrefab;
     
     
     private GameObject currentLevelInstance;
@@ -26,7 +26,10 @@ public class LevelManager : MonoBehaviour
         EventSystem.LoadNextLevel += LoadNextLevel;
         
     }
-
+    private void OnDestroy()
+    {
+        EventSystem.LoadNextLevel -= LoadNextLevel;
+    }
     // Load Levels
     public void LoadLevel(int index)
     {
@@ -54,7 +57,7 @@ public class LevelManager : MonoBehaviour
         {
             playerInstance = Instantiate(playerPrefab, currentLevelScript.GetPlayerSpawnPoint().position, Quaternion.identity);
         }
-GameManager.Instance.setPlayer(playerInstance);
+        GameManager.Instance.setPlayer(playerInstance);
         SpawnEnemies();
     }
     // Spawn Enamy

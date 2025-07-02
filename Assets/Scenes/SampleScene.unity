@@ -408,8 +408,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21c66d29b14fd6f40a00c348dd782e9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemSlotPrefab: {fileID: 143179288}
-  contentPanel: {fileID: 1271082409}
+  itemSlotPrefab: {fileID: 7160657401127253091, guid: 08225c2dde867a442a7c6f93bb338c43, type: 3}
+  contentPanel: {fileID: 314146339}
 --- !u!1 &175101473
 GameObject:
   m_ObjectHideFlags: 0
