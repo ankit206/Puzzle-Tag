@@ -70,6 +70,7 @@ public class GameManager : MonoBehaviour
             firstHalf[i].GetComponent<MeleeEnemy>().player = secondHalf[i];
             secondHalf[i].GetComponent<MeleeEnemy>().player = firstHalf[i];
         }
+        
     }
     
     
