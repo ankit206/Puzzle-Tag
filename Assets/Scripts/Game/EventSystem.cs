@@ -11,6 +11,7 @@ public static  class EventSystem
 
     public static Action ONStartGame;
     public static Action disableStartGameUiPanel;
+    public static Action FireArrow;
     public static Action OnLeveLComplete;
     public static Action LoadNextLevel;
 

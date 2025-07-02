@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public TopDownCamera Camera;
     
     public List<GameObject> chareaters = new List<GameObject>();
+    public bool bettelArena;
+    public List<GameObject> allcharacters = new List<GameObject>();
     void Awake()
     {
         if (Instance == null)
@@ -35,6 +37,11 @@ public class GameManager : MonoBehaviour
         if (player!=null&& player.GetComponent<PlayerController>())
         {
             player.GetComponent<PlayerController>().isGamePaused  = false;
+        }
+
+        if (bettelArena)
+        {
+            allcharacters = LevelManager.spawnedEnemies;
         }
     }
     // set appllication Framerate to 60

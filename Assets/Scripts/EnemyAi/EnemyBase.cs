@@ -15,7 +15,7 @@ public abstract class EnemyBase : MonoBehaviour
     public int  health = 100;
 
     [Header("Health and power")]
-    public float attackRange = 2f;
+    public float attackRange = 5f;
     public float AttackPower;
     public Animator animator;
     [Header( "Player")]

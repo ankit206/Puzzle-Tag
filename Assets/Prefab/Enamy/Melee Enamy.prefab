@@ -353,7 +353,11 @@ MonoBehaviour:
   attackCooldown: 2
   Playerisinrange: 0
   healthSlider: {fileID: 2345121240365476941}
+  HasBow: 0
+  ShootPostion: {fileID: 0}
+  mProjectile: {fileID: 0}
   takeDameage: 10
+  EventAssine: 0
 --- !u!195 &5291764546386070754
 NavMeshAgent:
   m_ObjectHideFlags: 0
