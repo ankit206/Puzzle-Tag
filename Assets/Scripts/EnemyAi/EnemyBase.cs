@@ -127,6 +127,7 @@ public abstract class EnemyBase : MonoBehaviour
     public virtual void Die()
     {
         Debug.Log($"{gameObject.name} died.");
+        EventSystem.PlayerDied?.Invoke();
         Destroy(gameObject);
     }
 

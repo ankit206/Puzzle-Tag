@@ -10,6 +10,7 @@ public static  class EventSystem
     public static Action<List<InventoryItem>> OnInventoryUpdated;
 
     public static Action ONStartGame;
+    public static Action PlayerDied;
     public static Action disableStartGameUiPanel;
     public static Action FireArrow;
     public static Action OnLeveLComplete;

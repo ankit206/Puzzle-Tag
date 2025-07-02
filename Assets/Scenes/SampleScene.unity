@@ -2235,6 +2235,10 @@ MonoBehaviour:
   Gamestarted: 0
   Camera: {fileID: 330585548}
   chareaters: []
+  bettelArena: 1
+  allcharacters: []
+  firstHalf: []
+  secondHalf: []
 --- !u!4 &1471128706
 Transform:
   m_ObjectHideFlags: 0
@@ -2266,14 +2270,14 @@ MonoBehaviour:
   - {fileID: 3672523783848016075, guid: 5b82d29e9e087f84aae40acff421c5a7, type: 3}
   playerPrefab: {fileID: 3235146421533747379, guid: 768689c0e8747e1429ce5ccbbf474bc5, type: 3}
   enemyPrefab:
+  - {fileID: 5854466908247868495, guid: 27091306f69971042bb85fde2a67931b, type: 3}
+  - {fileID: 586081496090925651, guid: ecd61cef70495834e850fce765dff158, type: 3}
   - {fileID: 6169336772548988142, guid: 3b5b937ccb8a63a4b9d3d9a0d12a3e2b, type: 3}
   - {fileID: 3235146421533747379, guid: 768689c0e8747e1429ce5ccbbf474bc5, type: 3}
   - {fileID: 586081496090925651, guid: ecd61cef70495834e850fce765dff158, type: 3}
   - {fileID: 5854466908247868495, guid: 27091306f69971042bb85fde2a67931b, type: 3}
-  - {fileID: 6169336772548988142, guid: 3b5b937ccb8a63a4b9d3d9a0d12a3e2b, type: 3}
   - {fileID: 3235146421533747379, guid: 768689c0e8747e1429ce5ccbbf474bc5, type: 3}
-  - {fileID: 586081496090925651, guid: ecd61cef70495834e850fce765dff158, type: 3}
-  - {fileID: 5854466908247868495, guid: 27091306f69971042bb85fde2a67931b, type: 3}
+  - {fileID: 6169336772548988142, guid: 3b5b937ccb8a63a4b9d3d9a0d12a3e2b, type: 3}
   playerInstance: {fileID: 0}
   spawnedEnemies: []
   enemywayPoints: []
